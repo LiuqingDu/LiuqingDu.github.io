@@ -1,0 +1,24 @@
+body{
+padding:0px;
+margin:0px;
+background-color:#A5A5A5;
+}
+.copy {
+	font-family: Tahoma;
+	font-size: 10px;
+	line-height: 10px;
+	color: #707070;
+	text-decoration: none;
+}
+.text_1 {
+	font-family: Tahoma;
+	font-size: 11px;
+	line-height: 12px;
+	color: #707070;
+}
+.text_2 {
+	font-family: Tahoma;
+	font-size: 11px;
+	line-height: 12px;
+	color: #92BC00;
+}
