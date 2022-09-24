@@ -1,1 +1,1 @@
-dHJvamFuPTQ1LjE0NC4xMzYuMTk4OjQ0MywgcGFzc3dvcmQ9T0hBU21UQzRlUHVZaTRWSiwgb3Zlci10bHM9dHJ1ZSwgdGxzLXZlcmlmaWNhdGlvbj1mYWxzZSwgZmFzdC1vcGVuPWZhbHNlLCB1ZHAtcmVsYXk9ZmFsc2UsIHRhZz1oaw==
+hk = trojan,45.144.136.198,443,"OHASmTC4ePuYi4VJ",transport=tcp,skip-cert-verify=true
