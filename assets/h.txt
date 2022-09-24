@@ -1,1 +1,0 @@
-h = trojan,45.144.136.198,443,"OHASmTC4ePuYi4VJ",transport=tcp,skip-cert-verify=true
