@@ -1,1 +1,2 @@
 hk = trojan,45.144.136.198,443,"OHASmTC4ePuYi4VJ",transport=tcp,skip-cert-verify=true
+jp = trojan,ty1-3.nigirocloud.com,443,"nmwrDAQYaxSrRKS4CG",transport=tcp,skip-cert-verify=true
