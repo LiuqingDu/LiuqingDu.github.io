@@ -1,0 +1,122 @@
+#default configure
+#Update Date: 2021.02.19 22:34:05 +0000
+#author: Loon
+
+[General]
+skip-proxy = 192.168.0.0/16,10.0.0.0/8,172.16.0.0/12,localhost,*.local,e.crashlynatics.com
+bypass-tun = 10.0.0.0/8,100.64.0.0/10,127.0.0.0/8,169.254.0.0/16,172.16.0.0/12,192.0.0.0/24,192.0.2.0/24,192.88.99.0/24,192.168.0.0/16,198.18.0.0/15,198.51.100.0/24,203.0.113.0/24,224.0.0.0/4,255.255.255.255/32
+# DNS server
+dns-server = system,119.29.29.29,223.5.5.5
+
+[Proxy]
+# 内置 DIRECT、REJECT 策略
+# 内置 PROXY 指向本地节点或者订阅节点中的任何一个（有本地节点默认指向第一个本地节点，当没有本地节点但有订阅节点时，指向第一个订阅的第一个节点，本地节点和订阅节点都不存在时指向DIRECT）
+🇭🇰 野草云|cn-hk = trojan,45.144.136.198,443,"OHASmTC4ePuYi4VJ",transport=tcp,skip-cert-verify=true
+🇨🇳 台湾2|cn-tw = Shadowsocks,1.tw-2.tly04.com,9031,aes-256-gcm,"mJW0TwWURNgU4z6j"
+🇨🇳 台湾15|cn-tw = Shadowsocks,1.tw-15.tly04.com,9031,aes-256-gcm,"mJW0TwWURNgU4z6j"
+🇺🇸 美国5|cn-us = Shadowsocks,1.us-5.tly04.com,9015,aes-256-gcm,"mJW0TwWURNgU4z6j"
+🇺🇸 美国7|cn-us = Shadowsocks,1.us-7.tly04.com,9049,aes-256-gcm,"mJW0TwWURNgU4z6j"
+🇯🇵 日本4|cn-jp = Shadowsocks,1.jp-4.tly04.com,9022,aes-256-gcm,"mJW0TwWURNgU4z6j"
+🇯🇵 日本5|cn-jp = Shadowsocks,1.jp-5.tly04.com,9023,aes-256-gcm,"mJW0TwWURNgU4z6j"
+🇰🇷 韩国4|cn-kr = Shadowsocks,1.kr-4.tly04.com,9005,aes-256-gcm,"mJW0TwWURNgU4z6j"
+🇸🇬 新加坡2|cn-sg = Shadowsocks,1.sg-2.tly04.com,9027,aes-256-gcm,"mJW0TwWURNgU4z6j"
+🇷🇺 俄罗斯2|cn-ru = Shadowsocks,1.ru-2.tly04.com,9017,aes-256-gcm,"mJW0TwWURNgU4z6j"
+🇭🇰 香港4|cn-hk = Shadowsocks,1.hk-4.tly04.com,9021,aes-256-gcm,"mJW0TwWURNgU4z6j"
+
+[Remote Proxy]
+# 订阅节点
+# 别名 = 订阅URL
+
+[Remote Filter]
+# 筛选订阅节点，筛选后的结果可加入到策略组中，目前支持三种筛选方式
+# NodeSelect: 使用在UI上选择的节点。
+# NameKeyword: 根据提供的关键词对订阅中所有节点的名称进行筛选，使用筛选后的节点。
+# NameRegex: 根据提供的正则表达式对订阅中所有节点的名称进行筛选，使用筛选后的节点。
+
+[Proxy Group]
+# 节点选项
+🔰 节点选择 = select,♻️ 自动选择,🎯 全球直连,🇭🇰 野草云|cn-hk,🇨🇳 台湾2|cn-tw,🇨🇳 台湾15|cn-tw,🇺🇸 美国5|cn-us,🇺🇸 美国7|cn-us,🇯🇵 日本4|cn-jp,🇯🇵 日本5|cn-jp,🇰🇷 韩国4|cn-kr,🇸🇬 新加坡2|cn-sg,🇷🇺 俄罗斯2|cn-ru,🇭🇰 香港4|cn-hk
+♻️ 自动选择 = url-test,🇭🇰 野草云|cn-hk,🇨🇳 台湾2|cn-tw,🇨🇳 台湾15|cn-tw,🇺🇸 美国5|cn-us,🇺🇸 美国7|cn-us,🇯🇵 日本4|cn-jp,🇯🇵 日本5|cn-jp,🇰🇷 韩国4|cn-kr,🇸🇬 新加坡2|cn-sg,🇷🇺 俄罗斯2|cn-ru,🇭🇰 香港4|cn-hk,url=http://www.gstatic.com/generate_204,interval=300
+# 全局直连
+🎯 全球直连 = select,DIRECT
+# 广告模式
+🛑 全球拦截 = select,REJECT,DIRECT
+# Final兜底 白名单模式 PROXY，黑名单模式 DIRECT
+🐟 漏网之鱼 = select,PROXY,DIRECT
+
+[Rule]
+# Local RULE
+# Type:DOMAIN-SUFFIX,DOMAIN,DOMAIN-KEYWORD,USER-AGENT,URL-REGEX,IP-CIDR
+# Strategy:DIRECT,Proxy,REJECT
+# Options:no-resolve(no-resolve(only for cidr))
+# GeoIP China
+GEOIP,CN,DIRECT
+FINAL,DIRECT
+
+[Remote Rule]
+# Remote Rule
+# 订阅规则URL,策略
+# PROXY
+https://id9.cc/getruleset?type=1&url=cnVsZXMvTG9jYWxBcmVhTmV0d29yay5saXN0,🎯 全球直连
+https://id9.cc/getruleset?type=1&url=cnVsZXMvTVNTZXJ2aWNlcy5saXN0,🎯 全球直连
+https://id9.cc/getruleset?type=1&url=cnVsZXMvRGl2aW5lRW5naW5lL1N1cmdlL1J1bGVzZXQvVW5icmVhay5saXN0,🎯 全球直连
+https://id9.cc/getruleset?type=1&url=cnVsZXMvTm9ieURhL1N1cmdlL0FkUnVsZS5saXN0,🛑 全球拦截
+https://id9.cc/getruleset?type=1&url=cnVsZXMvRGl2aW5lRW5naW5lL1N1cmdlL1J1bGVzZXQvR3VhcmQvSGlqYWNraW5nLmxpc3Q,🛑 全球拦截
+https://id9.cc/getruleset?type=1&url=cnVsZXMvRGl2aW5lRW5naW5lL1N1cmdlL1J1bGVzZXQvU3RyZWFtaW5nTWVkaWEvU3RyZWFtaW5nLmxpc3Q,🔰 节点选择
+https://id9.cc/getruleset?type=1&url=cnVsZXMvbGhpZTEvU3VyZ2UvU3VyZ2UgMy9Qcm92aWRlci9NZWRpYS9CaWxpYmlsaS5saXN0,🎯 全球直连
+https://id9.cc/getruleset?type=1&url=cnVsZXMvbGhpZTEvU3VyZ2UvU3VyZ2UgMy9Qcm92aWRlci9NZWRpYS9pUWl5aS5saXN0,🎯 全球直连
+https://id9.cc/getruleset?type=1&url=cnVsZXMvbGhpZTEvU3VyZ2UvU3VyZ2UgMy9Qcm92aWRlci9NZWRpYS9MZXR2Lmxpc3Q,🎯 全球直连
+https://id9.cc/getruleset?type=1&url=cnVsZXMvbGhpZTEvU3VyZ2UvU3VyZ2UgMy9Qcm92aWRlci9NZWRpYS9NT08ubGlzdA,🎯 全球直连
+https://id9.cc/getruleset?type=1&url=cnVsZXMvbGhpZTEvU3VyZ2UvU3VyZ2UgMy9Qcm92aWRlci9NZWRpYS9UZW5jZW50IFZpZGVvLmxpc3Q,🎯 全球直连
+https://id9.cc/getruleset?type=1&url=cnVsZXMvbGhpZTEvU3VyZ2UvU3VyZ2UgMy9Qcm92aWRlci9NZWRpYS9Zb3VrdS5saXN0,🎯 全球直连
+https://id9.cc/getruleset?type=1&url=cnVsZXMvRGl2aW5lRW5naW5lL1N1cmdlL1J1bGVzZXQvRXh0cmEvVGVsZWdyYW0vVGVsZWdyYW0ubGlzdA,🔰 节点选择
+https://id9.cc/getruleset?type=1&url=cnVsZXMvRGl2aW5lRW5naW5lL1N1cmdlL1J1bGVzZXQvR2xvYmFsLmxpc3Q,🔰 节点选择
+https://id9.cc/getruleset?type=1&url=cnVsZXMvRGl2aW5lRW5naW5lL1N1cmdlL1J1bGVzZXQvRXh0cmEvQXBwbGUvQXBwbGUubGlzdA,🎯 全球直连
+https://id9.cc/getruleset?type=1&url=cnVsZXMvRGl2aW5lRW5naW5lL1N1cmdlL1J1bGVzZXQvQ2hpbmEubGlzdA,🎯 全球直连
+https://id9.cc/getruleset?type=1&url=cnVsZXMvTm9ieURhL1N1cmdlL0Rvd25sb2FkLmxpc3Q,🎯 全球直连
+
+[Rewrite]
+# Redirect Google Search Service
+^https?:\/\/(www.)?(g|google)\.cn https://www.google.com 302
+
+[Remote Rewrite]
+# 订阅 URL Rewrite
+# 订阅url,别名(可选)
+https://raw.githubusercontent.com/Loon0x00/LoonExampleConfig/master/Rewrite/AutoRewrite_Example.list,tag=auto,enable=true
+
+[Host]
+#可以指定一下四种模式：
+# 1、指定域名使用对应的IP地址
+# 2、将域名指向另一个域名
+# 3、指定域名请求DNS时使用特定的DNS服务器，格式为：google.com = server:8.8.8.8 或者 *.baidu.com = server:https://example.com/dns-query
+# 4、指定具体的SSID环境下使用特定的DNS服务器
+
+[Script]
+# http-request 处理请求的脚本
+# http-response 处理请求响应的脚本
+# cron 定时脚本
+# network-changed   网络发生变化触发脚本
+# generic  通用型脚本，可用在操作节点/策略组中，执行是会带入节点名称和策略组名称，脚本必须在开启NE时
+
+# http-request ^https?:\/\/(www.)?(example)\.com script-path=localscript.js,tag = requestScript,enable=true
+# http-response ^https?:\/\/(www.)?(example)\.com script-path=https://example.com/loon.js,timeout=10,requires-body = true,tag = responseScript,enable=true
+# cron "0 8 * * *" script-path=cron.js,tag = responseScript,enable=true
+
+network-changed script-path=https://raw.githubusercontent.com/Loon0x00/LoonExampleConfig/master/Script/netChanged.js, tag=changeModel,enable=true
+
+generic script-path=https://raw.githubusercontent.com/Loon0x00/LoonExampleConfig/master/Script/generic_example.js,tag=GeoLocation,timeout=10,img-url=location.fill.viewfinder.system
+
+[Remote Script]
+# https://example.com/loon.js, tag=scripts, enable=true
+
+[Plugin]
+# plugin-url tag=tag,proxy=插件中PROXY所指向的策略,enable=true
+# plugin策略可设置为DIRECT,REJECT,PROXY，其中PROXY为用户在app中手动映射的策略，rule后不跟随策略默认使用PROXY
+# example: https://raw.githubusercontent.com/Loon0x00/LoonExampleConfig/master/Rewrite/AutoRewrite_Example.list,tag=boxjs,enable=true
+
+[MITM]
+hostname = *.example.com,*.sample.com
+enable = true
+skip-server-cert-verify = true
+#ca-p12 =
+#ca-passphrase =
