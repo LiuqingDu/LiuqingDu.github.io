@@ -11,6 +11,7 @@ dns-server = system,119.29.29.29,223.5.5.5
 [Proxy]
 # 内置 DIRECT、REJECT 策略
 # 内置 PROXY 指向本地节点或者订阅节点中的任何一个（有本地节点默认指向第一个本地节点，当没有本地节点但有订阅节点时，指向第一个订阅的第一个节点，本地节点和订阅节点都不存在时指向DIRECT）
+# https://sub.id9.cc/sub?target=loon&url=https%3A%2F%2Ftly04.com%2Fother%2Fclash3.php%3Fid%3D2145041%26p%3DmJW0TwWURNgU4z6j&insert=false&config=https%3A%2F%2Fraw.githubusercontent.com%2FACL4SSR%2FACL4SSR%2Fmaster%2FClash%2Fconfig%2FACL4SSR_Online.ini,udp=false,fast-open=false,vmess-aead=false,enabled=true
 🇭🇰 野草云|cn-hk = trojan,45.144.136.198,443,"OHASmTC4ePuYi4VJ",transport=tcp,skip-cert-verify=true
 🇨🇳 台湾2|cn-tw = Shadowsocks,1.tw-2.tly04.com,9031,aes-256-gcm,"mJW0TwWURNgU4z6j"
 🇨🇳 台湾15|cn-tw = Shadowsocks,1.tw-15.tly04.com,9031,aes-256-gcm,"mJW0TwWURNgU4z6j"
